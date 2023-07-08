@@ -1,7 +1,7 @@
 {
 	"group_targets": {
 		"groups": ["dev", "a", "fillgrids","boring", "latest", "bored", "trash_cans", "u_devs", "bangumi", "forum", "gal_erogame"],
-	 	"max_page": 10
+	 	"max_page": 2
  	},
  	"subject_targets" : {
  		"offset_start": -19,
