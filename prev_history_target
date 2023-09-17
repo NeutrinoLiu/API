@@ -1,6 +1,6 @@
 {
 	"group_targets": {
-		"groups": ["dev", "a", "fillgrids","boring", "latest", "bored", "trash_cans", "u_devs", "bangumi", "forum", "gal_erogame", "nihonngo", "qpz"],
+		"groups": ["dev", "a", "fillgrids","boring", "latest", "bored", "trash_cans", "u_devs", "bangumi", "forum", "gal_erogame", "nihonngo", "qpz", "virgo_otaku"],
 	 	"max_page": 2
  	},
  	"subject_targets" : {
