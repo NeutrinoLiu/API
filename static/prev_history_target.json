@@ -1,0 +1,10 @@
+{
+	"group_targets": {
+		"groups": ["dev", "a", "fillgrids","boring", "latest", "bored", "trash_cans", "u_devs", "bangumi", "forum", "gal_erogame", "nihonngo", "qpz", "virgo_otaku", "senyaku", "healthylife", "zuocai", "fillgrids_manga", "biweekly"],
+	 	"max_page": 2
+ 	},
+ 	"subject_targets" : {
+ 		"offset_start": -19,
+ 		"offset_end" : 0
+ 	}
+}
