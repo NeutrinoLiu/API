@@ -1,0 +1,36 @@
+name: schedule_fetcher
+
+on:
+  schedule:
+    - cron: '0 0 */1 * 0'
+
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' 
+      
+    # - name: wget
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O resp.json https://chii.ai/api/subjects/ranking
+
+    - name: HTTP Request Action
+      uses: fjogeleit/http-request-action@v1.15.2
+      with:
+        url: 'https://chii.ai/graphql'
+        method: 'POST'
+        customHeaders: '{"Content-Type": "application/json"}'
+        data: '{"operationName": "GetRankingList","variables": {"type": "anime"},"query": "query GetRankingList($type: String!) {\n  queryRankingList(type: $type) {\n    ...SubjectSearchResult\n    __typename\n  }\n}\n\nfragment SubjectSearchResult on SearchResult {\n  scroll_id\n  took\n  timed_out\n  total\n  result {\n    ... on Subject {\n      ...Subject\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment Subject on Subject {\n  id\n  name\n  nameCN\n  rank\n  type\n  score\n  scientificRank\n  tags {\n    ...Tag\n    __typename\n  }\n  date\n  __typename\n}\n\nfragment Tag on Tag {\n  content\n  userCount\n  confidence\n  __typename\n}"}'
+        responseFile: 'sciRank/resp.json'
+
+    - name: shrink
+      run: python3 sciRank/shrink.py
+      
+    - uses: stefanzweifel/git-auto-commit-action@v4
