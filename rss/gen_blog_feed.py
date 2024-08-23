@@ -15,7 +15,8 @@ blogs = dict(reversed(list(de_dup.items())[-max_num:]))
 feed = {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "Bangumi 日志推荐",
-    "icon": "https://bgm.tv/img/smiles/tv/74.gif",
+    "icon": "https://bgm.tv/img/ukagaka/shell_1_thumb.jpg",
+    "favicon": "https://bgm.tv/img/smiles/tv/74.gif",
     "home_page_url": "https://neutrinoliu.github.io/bgm_reviews/blog.html",
     "feed_url": "https://api-cab.pages.dev/rss/blog.json",
     "items": [
@@ -24,7 +25,7 @@ feed = {
             "url": f"https://bgm.tv/blog/{blog['blog']}",
             "title": blog["title"],
             "content_text": blog["reason"],
-            "date_modified": blog["date"],
+            "date_published": blog["date"],
             "authors": [
                 {
                     "name": blog["author"],
