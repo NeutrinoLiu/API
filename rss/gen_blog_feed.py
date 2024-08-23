@@ -2,7 +2,7 @@ import requests
 import json
 
 root_path = "rss/"
-max_num = 0
+max_num = 200
 
 blogs = requests.get(
     "https://eastasia.azure.data.mongodb-api.com/app/bangumibiweekly-hikvo/endpoint/dump_reco"
@@ -12,7 +12,8 @@ de_dup = {}
 
 for blog in reversed(blogs):
     de_dup[blog["blog"]] = blog
-blogs = dict(list(reversed(de_dup.items()))[-max_num:])
+de_dup = sorted(de_dup.items(), key=lambda x: x[1]["date"], reverse=True)
+blogs = dict(list(de_dup)[:max_num])
 feed = {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "Bangumi 日志推荐",
