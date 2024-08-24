@@ -27,6 +27,7 @@ feed = {
             "url": f"https://bgm.tv/blog/{blog['blog']}",
             "title": blog["title"],
             "date_published": blog["date"],
+            "content_text": "",
             "authors": [
                 {
                     "name": blog["author"],
