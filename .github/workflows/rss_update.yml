@@ -1,30 +1,30 @@
-name: rss_update
+# name: rss_update
 
-on:
-  schedule:
-    - cron: '0 0 * * *'
+# on:
+#   schedule:
+#     - cron: '0 0 * * *'
 
-  workflow_dispatch:
+#   workflow_dispatch:
 
-jobs:
-  main:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+# jobs:
+#   main:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
 
-    steps:
+#     steps:
     
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.10' 
+#     - uses: actions/checkout@v4
+#     - uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.10' 
 
-    - name: install_dep
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests
+#     - name: install_dep
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install requests
         
-    - name: blog_feed
-      run: python rss/gen_blog_feed.py
+#     - name: blog_feed
+#       run: python rss/gen_blog_feed.py
       
-    - uses: stefanzweifel/git-auto-commit-action@v5
+#     - uses: stefanzweifel/git-auto-commit-action@v5
